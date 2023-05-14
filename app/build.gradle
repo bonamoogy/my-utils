@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+
+//    id 'maven-publish'
+}
+
+android {
+    namespace 'com.example.utils'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.utils"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+//    publishing {
+//        singleVariant("release") {
+//            withSourcesJar()
+//            withJavadocJar()
+//        }
+//    }
+//    namespace 'com.example.my_lib'
+}
+
+//publishing {
+//    publications {
+//        release(MavenPublication) {
+//            groupId = 'com.github.bonamoogy'
+//            artifactId = 'demo-simple-android-lib'
+//            version = '0.0.2'
+//
+//            afterEvaluate {
+//                from components.release
+//            }
+//        }
+//    }
+//}
+
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId = 'com.github.bonamoogy'
+//            artifactId = 'demo-simple-android-lib'
+//            version = '0.0.2'
+//
+//            afterEvaluate {
+//                def componentsToPublish = []
+//                components.all { component ->
+//                    if (component.name.endsWith("Release") || component.name.endsWith("Debug")) {
+//                        componentsToPublish.add(component)
+//                    }
+//                }
+//                componentsToPublish.each { component ->
+//                    from(component)
+//                }
+//            }
+//        }
+//    }
+//}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
